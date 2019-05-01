@@ -9,3 +9,4 @@
 - Michael Gilbert
 - Preyansh Kotecha
 - Timothy Chan
+- Divyaraj Bakrola
