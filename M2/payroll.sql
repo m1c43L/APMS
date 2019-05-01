@@ -18,11 +18,11 @@ USE `payroll_sys` ;
 -- Table `payroll_sys`.`PTO`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `payroll_sys`.`PTO` (
-  `pto_id` INT NOT NULL,
+  `PTO_id` INT NOT NULL,
   `Start_Date` VARCHAR(45) NULL,
   `End_Date` VARCHAR(45) NULL,
   `Reason` VARCHAR(45) NULL,
-  PRIMARY KEY (`pto_id`))
+  PRIMARY KEY (`PTO_id`))
 ENGINE = InnoDB;
 
 
@@ -33,8 +33,8 @@ CREATE TABLE IF NOT EXISTS `payroll_sys`.`Position` (
   `position_id` INT NOT NULL,
   `Position_Title` VARCHAR(45) NULL,
   `Hourly_Wage` INT NULL,
-  `PTO(Initial Value)` INT NULL,
-  `Work_Time_Cap` INT NULL,
+  `PTO_initial` INT NULL,
+  `Work_Timecap` INT NULL,
   PRIMARY KEY (`position_id`))
 ENGINE = InnoDB;
 
@@ -47,14 +47,14 @@ CREATE TABLE IF NOT EXISTS `payroll_sys`.`Employee` (
   `Name` VARCHAR(45) NULL,
   `Wage_increase` INT NULL,
   `PTO_left` INT NULL,
-  `PTO_id` INT NOT NULL,
+  `PTO_id` INT NULL,
   `positionID` INT NOT NULL,
-  PRIMARY KEY (`EID`, `PTO_id`),
+  PRIMARY KEY (`EID`),
   INDEX `fk_Employee_PTO1_idx` (`PTO_id` ASC) VISIBLE,
   INDEX `fk_Employee_Position1_idx` (`positionID` ASC) VISIBLE,
   CONSTRAINT `fk_Employee_PTO1`
     FOREIGN KEY (`PTO_id`)
-    REFERENCES `payroll_sys`.`PTO` (`pto_id`)
+    REFERENCES `payroll_sys`.`PTO` (`PTO_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Employee_Position1`
@@ -70,13 +70,13 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `payroll_sys`.`Payment` (
   `payment_id` INT NOT NULL,
-  `PayDate` VARCHAR(45) NULL,
-  `PayAmount` VARCHAR(45) NULL,
+  `Pay_Date` VARCHAR(45) NULL,
+  `Pay_Amount` INT NULL,
   `FTC` INT NULL,
   `STC` INT NULL,
-  `MedicareCollected` INT NULL,
-  `PaymentFrameBegin` VARCHAR(45) NULL,
-  `PaymentFrameEnd` VARCHAR(45) NULL,
+  `Medicare_Collected` INT NULL,
+  `Payment_Frame_Begin` VARCHAR(45) NULL,
+  `Payment_Frame_End` VARCHAR(45) NULL,
   PRIMARY KEY (`payment_id`))
 ENGINE = InnoDB;
 
@@ -90,8 +90,6 @@ CREATE TABLE IF NOT EXISTS `payroll_sys`.`Shift` (
   `Lunch_Out` VARCHAR(45) NULL,
   `Punch_In` VARCHAR(45) NULL,
   `Punch_Out` VARCHAR(45) NULL,
-  `Date` VARCHAR(45) NULL,
-  `Wage` INT NULL,
   PRIMARY KEY (`shift_id`))
 ENGINE = InnoDB;
 
@@ -100,7 +98,7 @@ ENGINE = InnoDB;
 -- Table `payroll_sys`.`assignment`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `payroll_sys`.`assignment` (
-  `day` VARCHAR(45) NOT NULL,
+  `Date` VARCHAR(45) NOT NULL,
   `employee_id` INT NOT NULL,
   `shift_id` INT NOT NULL,
   INDEX `fk_assigned_Employee1_idx` (`employee_id` ASC) VISIBLE,
@@ -123,20 +121,20 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `payroll_sys`.`Payment_Record` (
   `payment_id` INT NOT NULL,
-  `Employee_EID` INT NOT NULL,
+  `employee_id` INT NOT NULL,
   INDEX `fk_Paycheck_Payment1_idx` (`payment_id` ASC) VISIBLE,
-  INDEX `fk_Payment_Record_Employee1_idx` (`Employee_EID` ASC) VISIBLE,
-  PRIMARY KEY (`Employee_EID`),
+  INDEX `fk_Payment_Record_Employee1_idx` (`employee_id` ASC) VISIBLE,
+  PRIMARY KEY (`employee_id`),
   CONSTRAINT `fk_Paycheck_Payment1`
     FOREIGN KEY (`payment_id`)
     REFERENCES `payroll_sys`.`Payment` (`payment_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Payment_Record_Employee1`
-    FOREIGN KEY (`Employee_EID`)
+    FOREIGN KEY (`employee_id`)
     REFERENCES `payroll_sys`.`Employee` (`EID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
