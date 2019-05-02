@@ -32,7 +32,12 @@ INSERT INTO Payment_Record VALUES ('234','1'),
 */
 
 -- b) DELETE queries
-
+-- we gotta delete employee_id, position, payment, pto, shift 
+DELETE FROM `Employee` WHERE `EID` = 1;
+DELETE FROM `Payment`WHERE `payment_id` = 1;
+DELETE FROM `Shift` WHERE `shift_id` = 1;
+DELETE FROM `PTO` WHERE `PTO_id` = 1;
+DELETE FROM `Position` WHERE `PositionID` = 1;
 
 -- c) SELECT queries
 
