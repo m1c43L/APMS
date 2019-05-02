@@ -1,6 +1,7 @@
 
 -- a) Insert 3 tuples
-/*INSERT INTO position VALUES ('001','CEO','300','70','50'),
+
+INSERT INTO position VALUES ('001','CEO','300','70','50'),
 ('003','Assistant','50','30','30'),
 ('004','Admin', '80', '40', '30'),
 ('007','Manager','100','40','40');
@@ -29,7 +30,7 @@ INSERT INTO Employee VALUES ('1', 'Dave', '0', '30', '1', '001'),
 INSERT INTO Payment_Record VALUES ('234','1'),
 ('235','17'),
 ('236','20');
-*/
+
 
 -- b) DELETE queries
 -- we gotta delete employee_id, position, payment, pto, shift 
@@ -37,7 +38,7 @@ DELETE FROM `Employee` WHERE `EID` = 1;
 DELETE FROM `Payment`WHERE `payment_id` = 001;
 DELETE FROM `Shift` WHERE `shift_id` = 1;
 DELETE FROM `PTO` WHERE `PTO_id` = 1;
-DELETE FROM `Position` WHERE `PositionID` = 1;
+DELETE FROM `Position` WHERE `position_id` = 1;
 
 -- c) SELECT queries
 
@@ -45,7 +46,7 @@ SELECT record.payment_id, record.employee_id FROM payment_record record, Employe
 
 SELECT position.position_id AS PID, position.Position_Title AS Position, employee.name As Employee FROM Position position, Employee employee 
 WHERE position.position_id = 7 AND position.position_id = employee.positionID;
- SELECT employee.PTO_id, employee.name, pto.Reason AS Reasons_for_leave FROM Employee employee, PTO pto 
+SELECT employee.PTO_id, employee.name, pto.Reason AS Reasons_for_leave FROM Employee employee, PTO pto 
 WHERE employee.PTO_id = pto.pto_id AND pto.Reason = 'Vacation'; 
 
 
