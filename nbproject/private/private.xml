@@ -2,15 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/Michael/Documents/Myprojects/APMS/src/apms/ui/home/Home_View.java</file>
-            <file>file:/C:/Users/Michael/Documents/Myprojects/APMS/src/apms/ui/shift/ManageShiftView.java</file>
-            <file>file:/C:/Users/Michael/Documents/Myprojects/APMS/src/apms/DatabaseHandler.java</file>
-            <file>file:/C:/Users/Michael/Documents/Myprojects/APMS/src/apms/ui/home/WelcomeView.java</file>
-            <file>file:/C:/Users/Michael/Documents/Myprojects/APMS/src/apms/ui/shift/ModifyShiftView.java</file>
-            <file>file:/C:/Users/Michael/Documents/Myprojects/APMS/src/apms/ui/home/ManageHomeView.java</file>
-            <file>file:/C:/Users/Michael/Documents/Myprojects/APMS/src/apms/ui/APMS_login.java</file>
-            <file>file:/C:/Users/Michael/Documents/Myprojects/APMS/src/apms/ui/shift/DetailShiftView.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
