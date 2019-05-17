@@ -4,6 +4,10 @@
  * and open the template in the editor.
  */
 package apms.ui;
+import apms.ui.home.HomeView;
+import java.awt.Dimension;
+import java.awt.GraphicsEnvironment;
+import java.awt.Point;
 
 /**
  *
@@ -16,6 +20,18 @@ public class APMS_login extends javax.swing.JFrame {
      */
     public APMS_login() {
         initComponents();
+        centerFrame();
+    }
+    
+     private void centerFrame() {
+    Dimension windowSize = getSize();
+    GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+    Point centerPoint = ge.getCenterPoint();
+
+    int dx = centerPoint.x - windowSize.width / 2;
+    int dy = centerPoint.y - windowSize.height / 2;
+    
+    setLocation(dx, dy);
     }
 
     /**
@@ -42,6 +58,11 @@ public class APMS_login extends javax.swing.JFrame {
         label_password.setText("Password");
 
         button_login.setText("login");
+        button_login.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_loginActionPerformed(evt);
+            }
+        });
 
         field_text_username.setText("Username");
 
@@ -54,7 +75,7 @@ public class APMS_login extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(110, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(button_login)
+                    .addComponent(button_login, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(label_password)
@@ -76,9 +97,9 @@ public class APMS_login extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(field_text_password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(label_password))
-                .addGap(18, 18, 18)
-                .addComponent(button_login)
-                .addGap(36, 36, 36))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(button_login, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29))
         );
 
         jToolBar1.setRollover(true);
@@ -90,7 +111,7 @@ public class APMS_login extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
             .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
@@ -99,12 +120,30 @@ public class APMS_login extends javax.swing.JFrame {
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(2, 2, 2)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void button_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_loginActionPerformed
+        // TODO add your handling code here:
+        
+        String user = this.field_text_username.getText();
+        
+        if( isValidUser(user) ){
+          new  HomeView(user).setVisible(true);
+          dispose();
+        }else{
+            
+        }
+        
+    }//GEN-LAST:event_button_loginActionPerformed
+
+    boolean isValidUser(String username){
+        return true;
+    }
+    
     /**
      * @param args the command line arguments
      */
