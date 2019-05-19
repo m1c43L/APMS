@@ -5,13 +5,14 @@
  */
 package apms.ui.home;
 
-import apms.ui.APMS_login;
+import apms.APMS;
+import apms.ui.LoginView;
 import java.awt.Dimension;
 import java.awt.GraphicsEnvironment;
 import java.awt.Point;
 
 /**
- *
+ * Main Dashboard of the APP
  * @author Michael
  */
 public class HomeView extends javax.swing.JFrame {
@@ -22,12 +23,9 @@ public class HomeView extends javax.swing.JFrame {
     public HomeView() {
         initComponents();
         centerFrame();
+        this.label_name.setText(APMS.getCurrentUser());
     }
     
-    public HomeView(String user) {
-        this();
-        this.label_name.setText(user);
-    }
 
     // open jframe on the center of the the display.
     private void centerFrame() {
@@ -170,8 +168,9 @@ public class HomeView extends javax.swing.JFrame {
     private void menu_item_sign_outActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_item_sign_outActionPerformed
         // TODO add your handling code here:
         
-        new APMS_login().setVisible(true);
+        new LoginView().setVisible(true);
         dispose();
+        APMS.reset();
     }//GEN-LAST:event_menu_item_sign_outActionPerformed
 
     /**

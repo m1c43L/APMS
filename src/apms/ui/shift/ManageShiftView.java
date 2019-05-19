@@ -5,10 +5,8 @@
  */
 package apms.ui.shift;
 
+import apms.DBhandler;
 import apms.ui.DefaultView;
-import java.awt.Dimension;
-import java.awt.GraphicsEnvironment;
-import java.awt.Point;
 
 /**
  *
@@ -17,7 +15,7 @@ import java.awt.Point;
 public class ManageShiftView extends DefaultView {
 
     /**
-     * Creates new form QueryView
+     * Creates new form 
      */
     public ManageShiftView() {
         initComponents();
@@ -172,15 +170,9 @@ public class ManageShiftView extends DefaultView {
             java.util.logging.Logger.getLogger(ManageShiftView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
+       
 
-        /* Create and display the form */
+        /* Create and display he form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new ManageShiftView().setVisible(true);

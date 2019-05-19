@@ -5,6 +5,7 @@
  */
 package apms.ui;
 
+import apms.DBhandler;
 import apms.ui.home.HomeView;
 import java.awt.Dimension;
 import java.awt.GraphicsEnvironment;
@@ -22,7 +23,9 @@ import javax.swing.ImageIcon;
  * @author Michael
  */
 public class DefaultView extends javax.swing.JFrame {
-
+    
+    protected DBhandler dbHandler;
+    
     /**
      * Creates new form DefaultView
      */
