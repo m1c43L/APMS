@@ -18,7 +18,7 @@ import javax.imageio.ImageIO;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
-/**
+/** Reusable UI view that contains a home button
  *
  * @author Michael
  */

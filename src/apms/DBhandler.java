@@ -9,8 +9,9 @@ import java.sql.*;
 import java.util.Vector;
 
 /**
- * All Database transactions will be handled here.
- *
+ * Connects to a Database
+ * All Database transactions will be handled here by.
+ * 
  * @author Michael
  */
 public class DBhandler {
@@ -21,13 +22,10 @@ public class DBhandler {
     private static boolean isConnected = false;
     
     
-    
-    public DBhandler(String url, String username ,String password) throws SQLException, ClassNotFoundException{
-        Class.forName(JDBC);  
-        connection = DriverManager.getConnection(url, username, password);
-         statement = connection.createStatement();
-         isConnected = true;
-    }    
+    /* Dont instatiate this class, all properties must remain static*/
+    protected DBhandler(){
+        
+    }
     
     
     public static void initialize(String url, String username ,String password)throws SQLException, ClassNotFoundException {
@@ -42,6 +40,9 @@ public class DBhandler {
     }
     
     
+    
+    
+    // TODO needs to be moved to RequestHandler
     public static Vector<String> getAll(String tableName, String columnName){
         Vector <String> data = new Vector();
         try{

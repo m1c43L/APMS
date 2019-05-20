@@ -11,7 +11,7 @@ import java.awt.Dimension;
 import java.awt.GraphicsEnvironment;
 import java.awt.Point;
 
-/**
+/** UI for entering DB credentials
  *
  * @author Michael
  */

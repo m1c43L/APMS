@@ -11,11 +11,10 @@ import java.awt.Dimension;
 import java.awt.GraphicsEnvironment;
 import java.awt.Point;
 import java.sql.SQLException;
-import java.util.Vector;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
-/**
+/** Main login view for APMS
+ *  Allows user to connect to specific DB
+ *  and allows users employees to login to their respective home page.
  *
  * @author Michael
  */
